@@ -17,16 +17,47 @@ h1 { color: #ff7a1a; }
 
 .subtitle { color: #aaa; margin-bottom: 24px; }
 
+.mode-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.mode-btn {
+  background: #1a1a1a;
+  color: #aaa;
+  border: 1px solid #333;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.mode-btn.active {
+  background: #ff7a1a;
+  color: #111;
+  border-color: #ff7a1a;
+  font-weight: 600;
+}
+
 .upload-box {
   display: flex;
   gap: 12px;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
 input[type="file"] {
   flex: 1;
   color: #ccc;
+  min-width: 200px;
+}
+
+.hint {
+  color: #888;
+  font-size: 13px;
+  margin: 0 0 16px 0;
 }
 
 button {
@@ -44,6 +75,29 @@ button:disabled { background: #555; cursor: not-allowed; }
 
 .hidden { display: none; }
 
+#loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ccc;
+  margin: 16px 0;
+}
+
+#loading.hidden { display: none; }
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #333;
+  border-top: 3px solid #ff7a1a;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .error {
   color: #ff4d4d;
   background: #2a0e0e;
@@ -51,16 +105,42 @@ button:disabled { background: #555; cursor: not-allowed; }
   border-radius: 6px;
 }
 
-#results {
+#results, #compareResults {
   background: #1a1a1a;
   padding: 20px 24px;
   border-radius: 10px;
   margin-top: 20px;
 }
 
-#results h3 {
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.results-header h2 {
+  margin: 0;
+}
+
+.download-btn {
+  background: #2a2a2a;
+  color: #ff7a1a;
+  border: 1px solid #ff7a1a;
+  font-size: 13px;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  background: #ff7a1a;
+  color: #111;
+}
+
+#results h3, #compareResults h3 {
   color: #ff7a1a;
   margin-bottom: 6px;
 }
 
-#results ul { margin-top: 4px; }
+#results ul, #compareResults ul { margin-top: 4px; }

@@ -8,18 +8,39 @@
 <body>
   <div class="container">
     <h1>📄 AI Research Paper Analyzer</h1>
-    <p class="subtitle">Upload a research paper PDF to get a summary, key findings, methodology, and more.</p>
+    <p class="subtitle">Upload research paper PDFs to get a summary, key findings, methodology, and more.</p>
 
-    <div class="upload-box">
+    <div class="mode-toggle">
+      <button id="singleModeBtn" class="mode-btn active">Analyze One Paper</button>
+      <button id="compareModeBtn" class="mode-btn">Compare Multiple Papers</button>
+    </div>
+
+    <!-- SINGLE MODE -->
+    <div id="singleUpload" class="upload-box">
       <input type="file" id="pdfInput" accept="application/pdf" />
       <button id="analyzeBtn">Analyze Paper</button>
     </div>
 
-    <div id="loading" class="hidden">Analyzing... this may take 15-30s ⏳</div>
+    <!-- COMPARE MODE -->
+    <div id="compareUpload" class="upload-box hidden">
+      <input type="file" id="pdfInputMulti" accept="application/pdf" multiple />
+      <button id="compareBtn">Compare Papers</button>
+    </div>
+    <p id="compareHint" class="hint hidden">Select 2 or more PDFs (Ctrl+click to select multiple)</p>
+
+    <div id="loading" class="hidden">
+      <div class="spinner"></div>
+      <span id="loadingText">Analyzing... this may take 15-30s</span>
+    </div>
+
     <div id="error" class="hidden error"></div>
 
+    <!-- SINGLE PAPER RESULTS -->
     <div id="results" class="hidden">
-      <h2 id="paperTitle"></h2>
+      <div class="results-header">
+        <h2 id="paperTitle"></h2>
+        <button id="downloadBtn" class="download-btn">⬇ Download as Text</button>
+      </div>
 
       <h3>Summary</h3>
       <p id="summary"></p>
@@ -35,6 +56,23 @@
 
       <h3>Limitations</h3>
       <ul id="limitations"></ul>
+    </div>
+
+    <!-- COMPARISON RESULTS -->
+    <div id="compareResults" class="hidden">
+      <div class="results-header">
+        <h2>Comparison Results</h2>
+        <button id="downloadCompareBtn" class="download-btn">⬇ Download as Text</button>
+      </div>
+
+      <h3>Comparison Summary</h3>
+      <p id="comparisonSummary"></p>
+
+      <h3>Common Themes</h3>
+      <ul id="commonThemes"></ul>
+
+      <h3>Key Differences</h3>
+      <ul id="keyDifferences"></ul>
     </div>
   </div>
 
