@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Research Paper Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📄 AI Research Paper Analyzer</h1>
+    <p class="subtitle">Upload a research paper PDF to get a summary, key findings, methodology, and more.</p>
+
+    <div class="upload-box">
+      <input type="file" id="pdfInput" accept="application/pdf" />
+      <button id="analyzeBtn">Analyze Paper</button>
+    </div>
+
+    <div id="loading" class="hidden">Analyzing... this may take 15-30s ⏳</div>
+    <div id="error" class="hidden error"></div>
+
+    <div id="results" class="hidden">
+      <h2 id="paperTitle"></h2>
+
+      <h3>Summary</h3>
+      <p id="summary"></p>
+
+      <h3>Key Findings</h3>
+      <ul id="findings"></ul>
+
+      <h3>Methodology</h3>
+      <p id="methodology"></p>
+
+      <h3>Citations Mentioned</h3>
+      <ul id="citations"></ul>
+
+      <h3>Limitations</h3>
+      <ul id="limitations"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
