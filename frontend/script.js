@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000";
+const API_URL = "https://ai-paper-analyzer-u528.onrender.com";
 
 // Mode elements
 const singleModeBtn = document.getElementById("singleModeBtn");
