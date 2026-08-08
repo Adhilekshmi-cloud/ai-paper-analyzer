@@ -48,3 +48,13 @@ async def compare_multiple_papers(files: list[UploadFile] = File(...)):
 
     result = compare_papers(texts)
     return JSONResponse(content=result)
+import httpx
+
+@app.get("/debug-network")
+async def debug_network():
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            r = await client.get("https://api.groq.com")
+            return {"status": "reachable", "code": r.status_code}
+    except Exception as e:
+        return {"status": "unreachable", "error": str(e)}
